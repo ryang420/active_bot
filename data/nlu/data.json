@@ -50,6 +50,21 @@
         "text": "Hi bot",
         "intent": "greet",
         "entities": []
+      },
+      {
+        "text": "good afternoon",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "good morning",
+        "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "good evening",
+        "intent": "greet",
+        "entities": []
       }
     ],
     "regex_features": [],
