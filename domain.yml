@@ -1,0 +1,47 @@
+%YAML 1.1
+---
+actions:
+- action_weather
+- utter_get_pizza_toppings
+- utter_get_pizza_size
+- utter_goodbye
+- action_order_pizza
+- utter_thank
+- utter_ask_location
+- utter_greet
+entities:
+- toppings
+- location
+- size
+intents:
+- inform
+- thank
+- greet
+- goodbye
+- order_pizza
+slots:
+  location:
+    type: text
+  size:
+    type: text
+  toppings:
+    type: text
+templates:
+  utter_ask_location:
+  - text: In what location?
+  utter_default:
+  - text: Sorry, I didn’t understand that.
+  utter_get_pizza_size:
+  - text: What pizza size?
+  utter_get_pizza_toppings:
+  - text: What toppings would you like on your pizza?
+  utter_goodbye:
+  - text: Talk to you later.
+  - text: Bye bye :(
+  utter_greet:
+  - text: Hello! How can I help?
+  - text: Hi, I am here to help.
+  utter_thank:
+  - text: You're welcome!
+  - text: Not at all.
+  - text: Don't mention it.
