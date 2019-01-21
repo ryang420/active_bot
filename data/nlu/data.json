@@ -3,7 +3,7 @@
     "common_examples": [
       {
         "text": "I haven't received my order receipt email.",
-        "intent": "order_receipt_email",
+        "intent": "no_order_receipt_email",
         "entities": []
       },
       {
@@ -64,6 +64,26 @@
       {
         "text": "good evening",
         "intent": "greet",
+        "entities": []
+      },
+      {
+        "text": "Thank you so much",
+        "intent": "thank",
+        "entities": []
+      },
+      {
+        "text": "Thank you",
+        "intent": "thank",
+        "entities": []
+      },
+      {
+        "text": "Thanks",
+        "intent": "thank",
+        "entities": []
+      },
+      {
+        "text": "Cool. Thanks",
+        "intent": "thank",
         "entities": []
       }
     ],
