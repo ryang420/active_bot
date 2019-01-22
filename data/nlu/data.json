@@ -85,6 +85,45 @@
         "text": "Cool. Thanks",
         "intent": "thank",
         "entities": []
+      },
+      {
+        "text": "Resend receipt email button does not resend receipt email.",
+        "intent": "no_order_receipt_email",
+        "entities": []
+      },
+      {
+        "text": "Resend receipt email from AUI is not working",
+        "intent": "no_order_receipt_email",
+        "entities": []
+      },
+      {
+        "text": "How is the weather today?",
+        "intent": "ask_weather",
+        "entities": []
+      },
+      {
+        "text": "What's the weather in Berlin today?",
+        "intent": "ask_weather",
+        "entities": [
+          {
+            "start": 22,
+            "end": 28,
+            "value": "Berlin",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "What's the weather like today in Dallas?",
+        "intent": "ask_weather",
+        "entities": [
+          {
+            "start": 33,
+            "end": 39,
+            "value": "Dallas",
+            "entity": "location"
+          }
+        ]
       }
     ],
     "regex_features": [],

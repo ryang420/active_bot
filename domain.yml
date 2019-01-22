@@ -5,10 +5,11 @@ actions:
 - utter_thank
 - utter_ask_order_number
 - utter_greet
+- utter_no_order_receipt_email
+- utter_ask_location
 entities:
-- toppings
+- order_number
 - location
-- size
 intents:
 - thank
 - greet
@@ -16,6 +17,8 @@ intents:
 - order_receipt_email
 slots:
   order_number:
+    type: text
+  location:
     type: text
 templates:
   utter_default:
@@ -32,3 +35,8 @@ templates:
   - text: You're welcome!
   - text: Not at all.
   - text: Don't mention it.
+  utter_no_order_receipt_email:
+  - text: There is no payment on your order. So the order receipt email was not sent.
+  - text: Please ask support team to check wether the allow_email_from_oms flag is true in agency service db.
+  utter_ask_location:
+    - text: In which location?

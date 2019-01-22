@@ -4,7 +4,6 @@
 from rasa_nlu.training_data import load_data
 from rasa_nlu import config
 from rasa_nlu.model import Trainer
-from rasa_nlu.model import Metadata, Interpreter
 
 
 def train_nlu(data, configs, model_dir):
@@ -14,11 +13,5 @@ def train_nlu(data, configs, model_dir):
     trainer.persist(model_dir, fixed_model_name="activenlu")
 
 
-def run_nlu():
-    interpreter = Interpreter.load('./models/nlu/default/activenlu')
-    print(interpreter.parse("Thanks"))
-
-
 if __name__ == "__main__":
     train_nlu('./data/nlu/data.json', 'config.json', './models/nlu')
-    # run_nlu()
