@@ -124,6 +124,33 @@
             "entity": "location"
           }
         ]
+      },
+      {
+        "text": "What's the weather like today in Beijing?",
+        "intent": "ask_weather",
+        "entities": [
+          {
+            "start": 33,
+            "end": 40,
+            "value": "Beijing",
+            "entity": "location"
+          }
+        ]
+      },
+      {
+        "text": "How is the weather today?",
+        "intent": "ask_weather",
+        "entities": []
+      },
+      {
+        "text": "Is sunny today?",
+        "intent": "ask_weather",
+        "entities": []
+      },
+      {
+        "text": "Can you tell me what the weather is today?",
+        "intent": "ask_weather",
+        "entities": []
       }
     ],
     "regex_features": [],

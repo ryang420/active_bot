@@ -14,8 +14,8 @@
     - utter_greet
 * ask_weather
     - utter_ask_location
-* ask_weather{"location": "London"}
-    - slot{"location": "London"}
+* ask_weather{"location": "london"}
+    - slot{"location": "london"}
     - action_weather
 * thank
     - utter_thank
@@ -26,7 +26,6 @@
 * ask_weather{"location": "berlin"}
     - slot{"location": "berlin"}
     - action_weather
-    - slot{"location": "berlin"}
 * thank
     - utter_thank
 
