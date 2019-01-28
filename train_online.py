@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 def run_weather_online(interpreter,
                        domain_file="domain.yml",
-                       training_data_file='data/stories.md'):
+                       training_data_file='data/core/stories.md'):
     action_endpoint = EndpointConfig(url="http://localhost:5055/webhook")
     agent = Agent(domain_file,
                   policies=[MemoizationPolicy(max_history=2), KerasPolicy(max_history=3, epochs=3, batch_size=50)],
