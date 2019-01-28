@@ -1,8 +1,11 @@
 ## intent:ask_weather
-- What's the weather in [Berlin](location:berlin) today?
+- What's the weather in [Dallas](GPE)?
+- What's the weather in [Dallas](GPE)?
+- What's the weather like in [Shanghai](GPE) now?
 
 ## intent:greet
-- hello
+- Hi
+- Hi
 
 ## intent:thank
-- Thanks a lot
+- Thank you

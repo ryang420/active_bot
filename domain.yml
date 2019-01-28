@@ -1,14 +1,15 @@
 %YAML 1.1
 ---
 actions:
+- utter_thank
+- utter_ask_order_number
+- utter_greet
 - action_weather
 - utter_no_order_receipt_email
-- utter_ask_order_number
 - utter_ask_location
-- utter_thank
-- utter_greet
 - utter_goodbye
 entities:
+- GPE
 - order_number
 - location
 intents:
@@ -18,6 +19,8 @@ intents:
 - goodbye
 - order_receipt_email
 slots:
+  GPE:
+    type: text
   location:
     type: text
   order_number:

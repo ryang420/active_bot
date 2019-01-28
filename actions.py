@@ -13,7 +13,7 @@ class ActionWeather(Action):
         from apixu.client import ApixuClient
         api_key = '1425533582cd4b6db2c20015192801'
         client = ApixuClient(api_key)
-        loc = tracker.get_slot('location')
+        loc = tracker.get_slot('GPE')
         current = client.current(q=loc)
 
         country = current['location']['country']
@@ -28,4 +28,4 @@ class ActionWeather(Action):
             condition, city, country, temperature_c, humidity, wind_mph)
 
         dispatcher.utter_message(response)
-        return [SlotSet('location', loc)]
+        return [SlotSet('GPE', loc)]
