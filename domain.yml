@@ -12,6 +12,7 @@ entities:
 - GPE
 - order_number
 - location
+- time
 intents:
 - ask_weather
 - thank
@@ -24,6 +25,8 @@ slots:
   location:
     type: text
   order_number:
+    type: text
+  time:
     type: text
 templates:
   utter_ask_location:

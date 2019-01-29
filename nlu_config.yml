@@ -4,6 +4,12 @@ pipeline:
 - name: "intent_entity_featurizer_regex"
 - name: "intent_featurizer_spacy"
 - name: "ner_spacy"
+- name: "ner_duckling_http"
+  # url of the running duckling server
+  url: "http://localhost:8000"
+  dimensions: ["time", "number", "amount-of-money", "distance"]
+  locale: "en_US"
+  timezone: "Asia/Shanghai"
 - name: "ner_synonyms"
 - name: "intent_classifier_sklearn"
 
