@@ -1,28 +1,28 @@
 %YAML 1.1
 ---
 actions:
-- utter_slots_values
-- utter_ask_continue
-- action_weather
+- utter_ask_location
 - utter_thank
 - utter_chitchat
-- utter_ask_location
-- utter_noworries
 - utter_greet
+- utter_noworries
+- action_weather
+- utter_slots_values
+- utter_ask_continue
 entities:
-- weather_date
-- cuisine
-- seating
-- location
 - num_people
 - number
+- time
+- seating
+- cuisine
 - feedback
+- location
 forms:
 - restaurant_form
 intents:
+- greet
 - thankyou
 - weather_forecast
-- greet
 - request_restaurant:
     use_entities: false
 - chitchat:
@@ -39,6 +39,8 @@ slots:
     auto_fill: false
     type: unfeaturized
   location:
+    type: text
+  time:
     type: text
   num_people:
     auto_fill: false

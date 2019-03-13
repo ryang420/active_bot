@@ -240,14 +240,14 @@
 * thankyou
     - utter_noworries
 
-
-## Generated Story 3293862242532657434
+## Generated Story -8358912192954647627
 * greet
     - utter_greet
-* weather_forecast{"location": "Chengdu"}
-    - slot{"location": "Chengdu"}
+* weather_forecast
+    - utter_ask_location
+* weather_forecast{"location": "Shanghai"}
+    - slot{"location": "Shanghai"}
     - action_weather
-    - slot{"location": "Chengdu"}
 * thankyou
     - utter_thank
 

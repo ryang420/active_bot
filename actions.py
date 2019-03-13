@@ -159,4 +159,4 @@ class WeatherAction(Action):
 
         response = f'The weather in {city} today is {condition}, the temperature is {temperature_c}.'
         dispatcher.utter_message(response)
-        return [SlotSet('location', loc)]
+        return []
