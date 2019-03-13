@@ -1,8 +1,8 @@
 ## intent:greet
-- Hello there
+- Hello
 
 ## intent:thankyou
 - Thank you
 
 ## intent:weather_forecast
-- What's the weather today[](location:Chengdu)
+- What's the weather like in [Chengdu](location:Chengdu)

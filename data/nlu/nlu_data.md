@@ -301,6 +301,7 @@
 
 ## intent:weather_forecast
 - What's the weather like today?
-- What's the weather like today in [Chengdu](location)?
-- How is the weather in [Beijing](locaton:beijing) today?
+- What's the weather like today in [Chengdu](location:chengdu) [today](weather_date:today)?
+- How is the weather in [Beijing](location:beijing) today?
 - Can you tell me the weather [tomorrow](weather_date:tomorrow)?
+- Tell me the weather in [shanghai](location)?

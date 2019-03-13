@@ -241,3 +241,13 @@
     - utter_noworries
 
 
+## Generated Story 3293862242532657434
+* greet
+    - utter_greet
+* weather_forecast{"location": "Chengdu"}
+    - slot{"location": "Chengdu"}
+    - action_weather
+    - slot{"location": "Chengdu"}
+* thankyou
+    - utter_thank
+
