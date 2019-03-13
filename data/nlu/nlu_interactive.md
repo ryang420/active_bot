@@ -1,11 +1,8 @@
-## intent:ask_weather
-- What's the weather in [Dallas](GPE)?
-- What's the weather in [Dallas](GPE)?
-- What's the weather like in [Shanghai](GPE) now?
-
 ## intent:greet
-- Hi
-- Hi
+- Hello there
 
-## intent:thank
+## intent:thankyou
 - Thank you
+
+## intent:weather_forecast
+- What's the weather today[](location:Chengdu)

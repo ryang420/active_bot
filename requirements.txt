@@ -2,5 +2,5 @@ rasa_nlu==0.13.8
 rasa_core==0.12.4
 sklearn-crfsuite==0.3.6
 spacy==2.0.18
-git+https://github.com/apixu/apixu-python.git
+git+https://github.com/apixu/apixu-python.git@master
 delorean==1.0.0
