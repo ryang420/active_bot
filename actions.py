@@ -153,10 +153,9 @@ class WeatherAction(Action):
         client = ApixuClient(api_key)
         loc = tracker.get_slot('location')
         forecast_date = tracker.get_slot('time')
-
         date_format = "%Y-%m-%d"
         today = time.strftime(date_format, time.localtime())
-        if forecast_date is not None or forecast_date != '':
+        if forecast_date is not None:
             forecast_date = forecast_date[:10]
         else:
             forecast_date = today
@@ -174,4 +173,3 @@ class WeatherAction(Action):
         response = f'The weather in {city} today is {condition}, the temperature is {temperature_c}.'
         dispatcher.utter_message(response)
         return []
-

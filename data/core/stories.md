@@ -251,3 +251,10 @@
 * thankyou
     - utter_thank
 
+## Generated Story -5610980595821978015
+* weather_forecast{"location": "shanghai"}
+    - slot{"location": "shanghai"}
+    - action_weather
+* thankyou
+    - utter_thank
+
