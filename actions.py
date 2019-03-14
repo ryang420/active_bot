@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from typing import Dict, Text, Any, List, Union
-
+import time
+from datetime import datetime
 from rasa_core_sdk import ActionExecutionRejection, Action
 from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
@@ -151,12 +152,26 @@ class WeatherAction(Action):
         api_key = '1425533582cd4b6db2c20015192801'
         client = ApixuClient(api_key)
         loc = tracker.get_slot('location')
-        current = client.current(q=loc)
+        forecast_date = tracker.get_slot('time')
 
-        city = current['location']['name']
-        condition = current['current']['condition']['text']
-        temperature_c = current['current']['temp_c']
+        date_format = "%Y-%m-%d"
+        today = time.strftime(date_format, time.localtime())
+        if forecast_date is not None or forecast_date != '':
+            forecast_date = forecast_date[:10]
+        else:
+            forecast_date = today
+
+        delta = datetime.strptime(forecast_date, date_format) - datetime.strptime(today, date_format)
+
+        forecast_weather = client.forecast(q=loc, days=delta.days + 1)
+        forecast = [weather for weather in forecast_weather['forecast']['forecastday'] if
+                    forecast_date in weather.values()]
+
+        city = forecast_weather['location']['name']
+        condition = forecast[0]['day']['condition']['text']
+        temperature_c = forecast[0]['day']['avgtemp_c']
 
         response = f'The weather in {city} today is {condition}, the temperature is {temperature_c}.'
         dispatcher.utter_message(response)
         return []
+

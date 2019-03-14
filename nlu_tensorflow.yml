@@ -8,6 +8,6 @@ pipeline:
 - name: ner_duckling_http
   url: http://localhost:8000
   dimensions: ["time", "number"]
-  locale: "zh_CN"
+  locale: "en_US"
   timezone: "Asia/Shanghai"
 language: en
