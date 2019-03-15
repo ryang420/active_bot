@@ -2,6 +2,8 @@
 from typing import Dict, Text, Any, List, Union
 import time
 from datetime import datetime
+
+from apixu.client import ApixuException
 from rasa_core_sdk import ActionExecutionRejection, Action
 from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
@@ -151,7 +153,11 @@ class WeatherAction(Action):
         from apixu.client import ApixuClient
         api_key = '1425533582cd4b6db2c20015192801'
         client = ApixuClient(api_key)
-        loc = tracker.get_slot('location')
+
+        default_city = 'Chengdu'
+
+        loc = tracker.get_slot('location') if tracker.get_slot('location') is not None else default_city
+
         forecast_date = tracker.get_slot('time')
         date_format = "%Y-%m-%d"
         today = time.strftime(date_format, time.localtime())
@@ -162,7 +168,13 @@ class WeatherAction(Action):
 
         delta = datetime.strptime(forecast_date, date_format) - datetime.strptime(today, date_format)
 
-        forecast_weather = client.forecast(q=loc, days=delta.days + 1)
+        forecast_weather = {}
+        try:
+            forecast_weather = client.forecast(q=loc, days=delta.days + 1)
+        except ApixuException as e:
+            print(e.message)
+            dispatcher.utter_message('No matching location found. Please try again')
+
         forecast = [weather for weather in forecast_weather['forecast']['forecastday'] if
                     forecast_date in weather.values()]
 
@@ -170,6 +182,6 @@ class WeatherAction(Action):
         condition = forecast[0]['day']['condition']['text']
         temperature_c = forecast[0]['day']['avgtemp_c']
 
-        response = f'The weather in {city} today is {condition}, the temperature is {temperature_c}.'
+        response = f'The weather in {city} is {condition}, the temperature is {temperature_c}.'
         dispatcher.utter_message(response)
-        return []
+        return [SlotSet('location', loc)]

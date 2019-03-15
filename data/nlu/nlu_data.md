@@ -306,3 +306,7 @@
 - Can you tell me the weather tomorrow?
 - Tell me the weather today in [shanghai](location)?
 - How is the weather next Monday?
+- What's the weather?
+- Tell me the weather in [Wuhan](location:wuhan) please
+- How is the weather?
+- Can you please tell me the weather in [London](location)?

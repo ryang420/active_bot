@@ -6,6 +6,7 @@
 * weather_forecast{"location": "italy"}
     - slot{"location": "italy"}
     - action_weather
+    - slot{"location": "italy"}
 * thankyou
     - utter_thank
 
@@ -17,6 +18,7 @@
 * weather_forecast{"location": "london"}
     - slot{"location": "london"}
     - action_weather
+    - slot{"location": "london"}
 * thankyou
     - utter_thank
 
@@ -26,6 +28,7 @@
 * weather_forecast{"location": "berlin"}
     - slot{"location": "berlin"}
     - action_weather
+    - slot{"location": "berlin"}
 * thankyou
     - utter_thank
 
@@ -35,7 +38,7 @@
 * weather_forecast{"location": "Dallas"}
     - slot{"location": "Dallas"}
     - action_weather
-    - action_weather
+    - slot{"location": "Dallas"}
 
 ## Generated Story -8683364652006619164
 * greet
@@ -50,6 +53,41 @@
     - slot{"location": "Shanghai"}
 * thankyou
     - utter_thank
+
+## Generated Story -8358912192954647627
+* greet
+    - utter_greet
+* weather_forecast
+    - utter_ask_location
+* weather_forecast{"location": "Shanghai"}
+    - slot{"location": "Shanghai"}
+    - action_weather
+    - slot{"location": "Shanghai"}
+* thankyou
+    - utter_thank
+
+## Generated Story -5610980595821978015
+* weather_forecast{"location": "shanghai"}
+    - slot{"location": "shanghai"}
+    - action_weather
+    - slot{"location": "shanghai"}
+* weather_forecast{"location": "wuhan"}
+    - slot{"location": "wuhan"}
+    - action_weather
+    - slot{"location": "wuhan"}
+* thankyou
+    - utter_thank
+
+## Generated Story -1433056051729551907
+* weather_forecast{"location": "beijing"}
+    - slot{"location": "beijing"}
+    - action_weather
+* weather_forecast{"location": "xian"}
+    - slot{"location": "xian"}
+    - action_weather
+* thankyou
+    - utter_thank
+
 
 ## happy path
 * greet
@@ -240,21 +278,25 @@
 * thankyou
     - utter_noworries
 
-## Generated Story -8358912192954647627
+## Generated Story -4729505263493939273
 * greet
     - utter_greet
 * weather_forecast
     - utter_ask_location
-* weather_forecast{"location": "Shanghai"}
-    - slot{"location": "Shanghai"}
+* weather_forecast{"location": "Tokyo"}
+    - slot{"location": "Tokyo"}
     - action_weather
-* thankyou
-    - utter_thank
+    - slot{"location": "Tokyo"}
 
-## Generated Story -5610980595821978015
-* weather_forecast{"location": "shanghai"}
-    - slot{"location": "shanghai"}
+## Generated Story 2650468281876918784
+* greet
+    - utter_greet
+* weather_forecast
+    - utter_ask_location
+* weather_forecast{"location": "xian"}
+    - slot{"location": "xian"}
     - action_weather
+    - slot{"location": "xian"}
 * thankyou
     - utter_thank
 
