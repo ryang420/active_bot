@@ -154,9 +154,7 @@ class WeatherAction(Action):
         api_key = '1425533582cd4b6db2c20015192801'
         client = ApixuClient(api_key)
 
-        default_city = 'Chengdu'
-
-        loc = tracker.get_slot('location') if tracker.get_slot('location') is not None else default_city
+        loc = tracker.get_slot('location')
 
         forecast_date = tracker.get_slot('time')
         date_format = "%Y-%m-%d"
