@@ -12,7 +12,7 @@ help:
 
 
 train-core:
-	python -m rasa_core.train -s data/core/stories.md -d domain.yml -o models/dialogue --debug
+	python -m rasa_core.train -s data/core/stories.md -d domain.yml -c policy.yml -o models/dialogue --debug
 
 run-core:
 	python -m rasa_core.run --core models/dialogue --nlu models/nlu/current --debug --endpoints endpoints.yml
