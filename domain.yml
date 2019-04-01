@@ -1,28 +1,30 @@
 %YAML 1.1
 ---
 actions:
-- utter_slots_values
 - utter_noworries
+- action_registration_report
 - utter_thank
 - utter_ask_continue
 - utter_chitchat
-- action_weather
 - utter_greet
 - utter_ask_location
+- utter_slots_values
+- action_weather
 entities:
-- num_people
-- time
 - cuisine
-- seating
-- feedback
 - number
+- num_people
+- feedback
+- seating
+- time
 - location
 forms:
 - restaurant_form
 intents:
-- weather_forecast
 - thankyou
 - greet
+- ask_registration_report
+- weather_forecast
 - request_restaurant:
     use_entities: false
 - chitchat:

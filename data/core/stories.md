@@ -300,3 +300,11 @@
 * thankyou
     - utter_thank
 
+## Generated Story 726981237163358242
+* greet
+    - utter_greet
+* ask_registration_report
+    - action_registration_report
+* thankyou
+    - utter_thank
+

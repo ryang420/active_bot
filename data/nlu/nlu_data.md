@@ -310,3 +310,9 @@
 - Tell me the weather in [Wuhan](location:wuhan) please
 - How is the weather?
 - Can you please tell me the weather in [London](location)?
+
+
+## intent:ask_registration_report
+- I need a copy of registration report
+- Can you send me the registration report
+- I need the registration report till now

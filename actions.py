@@ -10,6 +10,8 @@ from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
+from bot.TelegramBot import TelegramBot
+
 
 class RestaurantForm(FormAction):
     """Example of a custom form action"""
@@ -183,3 +185,20 @@ class WeatherAction(Action):
         response = f'The weather in {city} is {condition}, the temperature is {temperature_c}.'
         dispatcher.utter_message(response)
         return [SlotSet('location', loc)]
+
+
+class RegistrationReportAction(Action):
+    def name(self):
+        return 'action_registration_report'
+
+    def run(self,
+            dispatcher,  # type: CollectingDispatcher
+            tracker,  # type: Tracker
+            domain  # type:  Dict[Text, Any]
+            ):
+
+        telegram_bot = TelegramBot('708856373:AAFcSklRew9msW8PUMWCB-d5gY7zz_GvTTw')
+        # telegram_bot.send_image_url('615775632', 'https://i.ibb.co/1Zhqg7V/cat.jpg')
+        with open('report.csv', 'rb') as f:
+            telegram_bot.send_file('615775632', f)
+        return []
