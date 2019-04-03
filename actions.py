@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 
 from apixu.client import ApixuException
+from rasa_core.channels.telegram import TelegramOutput
 from rasa_core_sdk import ActionExecutionRejection, Action
 from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
@@ -197,8 +198,8 @@ class RegistrationReportAction(Action):
             domain  # type:  Dict[Text, Any]
             ):
 
-        telegram_bot = TelegramBot('708856373:AAFcSklRew9msW8PUMWCB-d5gY7zz_GvTTw')
-        # telegram_bot.send_image_url('615775632', 'https://i.ibb.co/1Zhqg7V/cat.jpg')
+        telegram_bot = TelegramOutput('708856373:AAFcSklRew9msW8PUMWCB-d5gY7zz_GvTTw')
         with open('report.csv', 'rb') as f:
-            telegram_bot.send_file('615775632', f)
+            telegram_bot.send_document(tracker.sender_id, f)
+
         return []
