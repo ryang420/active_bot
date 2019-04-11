@@ -11,9 +11,6 @@ from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
 
-from bot.TelegramBot import TelegramBot
-
-
 class RestaurantForm(FormAction):
     """Example of a custom form action"""
 
