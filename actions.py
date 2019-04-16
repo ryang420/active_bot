@@ -2,7 +2,7 @@
 from typing import Dict, Text, Any, List, Union
 import time
 from datetime import datetime
-
+import csv
 from apixu.client import ApixuException
 from rasa_core.channels.telegram import TelegramOutput
 from rasa_core_sdk import ActionExecutionRejection, Action
@@ -10,6 +10,7 @@ from rasa_core_sdk import Tracker
 from rasa_core_sdk.events import SlotSet
 from rasa_core_sdk.executor import CollectingDispatcher
 from rasa_core_sdk.forms import FormAction, REQUESTED_SLOT
+
 
 class RestaurantForm(FormAction):
     """Example of a custom form action"""
@@ -194,9 +195,61 @@ class RegistrationReportAction(Action):
             tracker,  # type: Tracker
             domain  # type:  Dict[Text, Any]
             ):
-
         telegram_bot = TelegramOutput('708856373:AAFcSklRew9msW8PUMWCB-d5gY7zz_GvTTw')
         with open('report.csv', 'rb') as f:
             telegram_bot.send_document(tracker.sender_id, f)
+
+        return []
+
+
+class HandoverToHumanBeingAction(Action):
+    def name(self):
+        return 'handoff_to_human_being'
+
+    def run(self,
+            dispatcher,  # type: CollectingDispatcher
+            tracker,  # type: Tracker
+            domain  # type:  Dict[Text, Any]
+            ):
+        message = 'Sorry, I cannot handle your request. I am going to hand over your request to client support team.'
+        dispatcher.utter_message(message)
+
+        recipient_id = tracker.sender_id
+        telegram_bot = TelegramOutput('708856373:AAFcSklRew9msW8PUMWCB-d5gY7zz_GvTTw')
+        telegram_bot.forward_message('829916303', recipient_id, tracker.latest_message)
+
+        return []
+
+
+class ActionDefaultAskAffirmation(Action):
+    """Asks for an affirmation of the intent if NLU threshold is not met."""
+
+    def name(self):
+        return "action_default_ask_affirmation"
+
+    def __init__(self):
+        self.intent_mappings = {}
+        # read the mapping from a csv and store it in a dictionary
+        with open('data/intent_mapping.csv', newline='', encoding='utf-8') as file:
+            csv_reader = csv.reader(file)
+            for row in csv_reader:
+                self.intent_mappings[row[0]] = row[1]
+
+    def run(self, dispatcher, tracker, domain):
+        # get the most likely intent
+        last_intent_name = tracker.latest_message['intent']['name']
+
+        # get the prompt for the intent
+        intent_prompt = self.intent_mappings[last_intent_name]
+
+        # Create the affirmation message and add two buttons to it.
+        # Use '/<intent_name>' as payload to directly trigger '<intent_name>'
+        # when the button is clicked.
+        message = "Did you mean '{}'?".format(intent_prompt)
+        buttons = [{'title': 'Yes',
+                    'payload': '/{}'.format(last_intent_name)},
+                   {'title': 'No',
+                    'payload': '/out_of_scope'}]
+        dispatcher.utter_button_message(message, buttons=buttons)
 
         return []

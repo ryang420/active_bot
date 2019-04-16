@@ -308,3 +308,15 @@
 * thankyou
     - utter_thank
 
+## Generated Story 8227622244792125452
+* greet
+    - utter_greet
+* weather_forecast
+    - action_default_ask_affirmation
+* affirm
+    - utter_ask_location
+* weather_forecast{"location": "Chengdu"}
+    - slot{"location": "Chengdu"}
+    - action_weather
+    - slot{"location": "Chengdu"}
+

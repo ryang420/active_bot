@@ -1,38 +1,39 @@
 %YAML 1.1
 ---
 actions:
-- utter_noworries
-- action_registration_report
 - utter_thank
-- utter_ask_continue
-- utter_chitchat
-- utter_greet
-- utter_ask_location
 - utter_slots_values
+- utter_ask_location
 - action_weather
+- utter_ask_continue
+- utter_greet
+- action_registration_report
+- utter_noworries
+- utter_chitchat
 entities:
-- cuisine
 - number
-- num_people
 - feedback
+- num_people
 - seating
 - time
 - location
+- cuisine
 forms:
 - restaurant_form
 intents:
-- thankyou
-- greet
-- ask_registration_report
 - weather_forecast
+- greet
+- affirm
+- thankyou
+- ask_registration_report
 - request_restaurant:
     use_entities: false
 - chitchat:
     use_entities: false
 - inform
-- affirm
 - deny
 - stop
+- out_of_scope
 slots:
   cuisine:
     auto_fill: false
@@ -78,6 +79,12 @@ templates:
   - text: Hello! I am Active bot! How can I help?
   utter_noworries:
   - text: you are welcome :)
+  utter_out_of_scope:
+  - text: Sorry, I can’t deal with that request.
+  - text: I'm sorry, I can't handle that request.
+  - text: I can't help you with that, I'm sorry.
+  - text: Even a chatbot is not completely perfect - it seems like I can't handle
+      that request.
   utter_slots_values:
   - text: "I am going to run a restaurant search using the following parameters:\n\
       \ - cuisine: {cuisine}\n - num_people: {num_people}\n - outdoor_seating: {outdoor_seating}\n\
